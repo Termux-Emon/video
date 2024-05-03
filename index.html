@@ -1,0 +1,21 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+
+// Create an Express app
+const app = express();
+const port = 3000;
+
+// Parse JSON bodies
+app.use(bodyParser.json());
+
+// Define a simple route for uploading a video
+app.post('/upload-video', (req, res) => {
+    const video = req.body.video;
+    // Save the video to a database or file system
+    res.status(200).json({ message: 'Video uploaded successfully' });
+});
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running on http://localhost:${port}`);
+});
